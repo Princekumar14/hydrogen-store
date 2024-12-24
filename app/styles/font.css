@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/playfair-display/PlayfairDisplay-Black.ttf');
+    font-weight: normal; /* Black is the heaviest weight */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/playfair-display/PlayfairDisplay-BlackItalic.ttf');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/playfair-display/PlayfairDisplay-Bold.ttf');
+    font-weight: bold; /* or 700 */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/playfair-display/PlayfairDisplay-BoldItalic.ttf');
+    font-weight: bold; /* or 700 */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/playfair-display/PlayfairDisplay-Italic.ttf');
+    font-weight: normal; /* or 400 */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/playfair-display/PlayfairDisplay-Regular.ttf');
+    font-weight: normal; /* or 400 */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/source-sans-pro/SourceSansPro-Black.otf');
+    font-weight: normal; /* Black */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/source-sans-pro/SourceSansPro-BlackIt.otf');
+    font-weight: normal; /* Black Italic */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/source-sans-pro/SourceSansPro-Bold.otf');
+    font-weight: bold; /* or 700 */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/source-sans-pro/SourceSansPro-BoldIt.otf');
+    font-weight: bold; /* or 700 */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/source-sans-pro/SourceSansPro-ExtraLight.otf');
+    font-weight: 200; /* Extra Light */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/source-sans-pro/SourceSansPro-ExtraLightIt.otf');
+    font-weight: 200; /* Extra Light Italic */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/source-sans-pro/SourceSansPro-It.otf');
+    font-weight: normal; /* or 400 */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/source-sans-pro/SourceSansPro-Light.otf');
+    font-weight: 300; /* Light */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/source-sans-pro/SourceSansPro-LightIt.otf');
+    font-weight: 300; /* Light Italic */
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/source-sans-pro/SourceSansPro-Regular.otf');
+    font-weight: normal; /* or 400 */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/source-sans-pro/SourceSansPro-Semibold.otf');
+    font-weight: 600; /* Semibold */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('/fonts/source-sans-pro/SourceSansPro-Semiboldit.otf');
+    font-weight: 600; /* Semibold Italic */
+    font-style: italic;
+    font-display: swap;
+}
