@@ -1,8 +1,8 @@
 import {CartForm, Image} from '@shopify/hydrogen';
 import {useVariantUrl} from '~/lib/variants';
 import {Link} from '@remix-run/react';
-import {ProductPrice} from './ProductPrice';
-import {useAside} from './Aside';
+import {ProductPrice} from '../ProductPrice';
+import {useAside} from '../Aside';
 
 /**
  * A single line item in the cart. It displays the product image, title, price.
@@ -147,6 +147,6 @@ function CartLineUpdateButton({children, lines}) {
 /** @typedef {OptimisticCartLine<CartApiQueryFragment>} CartLine */
 
 /** @typedef {import('@shopify/hydrogen/storefront-api-types').CartLineUpdateInput} CartLineUpdateInput */
-/** @typedef {import('~/components/CartMain').CartLayout} CartLayout */
+/** @typedef {import('~/components/cart/CartMain').CartLayout} CartLayout */
 /** @typedef {import('@shopify/hydrogen').OptimisticCartLine} OptimisticCartLine */
 /** @typedef {import('storefrontapi.generated').CartApiQueryFragment} CartApiQueryFragment */
