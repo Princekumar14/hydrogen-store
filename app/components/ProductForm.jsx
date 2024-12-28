@@ -97,7 +97,8 @@ export function ProductForm({productOptions, selectedVariant}) {
       })}
       <AddToCartButton
         disabled={!selectedVariant || !selectedVariant.availableForSale}
-        onClick={() => {
+        // disabled={!selectedVariant }
+        afterAddToCart={() => {
           open('cart');
         }}
         lines={
@@ -112,6 +113,7 @@ export function ProductForm({productOptions, selectedVariant}) {
             : []
         }
       >
+        {/* Add to cart */}
         {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
       </AddToCartButton>
     </div>

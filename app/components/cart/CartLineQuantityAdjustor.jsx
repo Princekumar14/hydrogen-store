@@ -15,7 +15,6 @@ const CartLineQuantityAdjustor = ({line}) => {
     // const prevQuantity = Number(Math.max(0, quantity - 1)).toFixed(0);
     const prevQuantity = Number(Math.round(quantity - 1));
     const nextQuantity = Number(Math.round(quantity + 1));
-    console.log(prevQuantity, "prevqty")
 
 
   return (

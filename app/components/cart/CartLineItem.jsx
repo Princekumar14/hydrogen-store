@@ -20,7 +20,7 @@ export function CartLineItem({layout, line}) {
   const {close} = useAside();
 
   return(
-    <div className='flex gap-4 py-6 border-b  border'>
+    <div className='flex gap-4 py-6 border-b border-gray-100'>
       {/* Product Image  */}
       <div className="relative w-24 h-24 bg-gray-50 rounded-lg overflow-hidden"> 
         {image && (
