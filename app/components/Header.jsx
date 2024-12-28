@@ -2,7 +2,7 @@ import {Suspense, useEffect, useState} from 'react';
 import {Await, NavLink, useAsyncValue} from '@remix-run/react';
 import {useAnalytics, useOptimisticCart} from '@shopify/hydrogen';
 import {useAside} from '~/components/Aside';
-import {Menu, Search, ShoppingBag, User} from 'lucide-react';
+import {Heart, Menu, Search, ShoppingBag, User} from 'lucide-react';
 
 /**
  * @param {HeaderProps}
@@ -228,6 +228,7 @@ function HeaderCtas({isLoggedIn, cart}) {
         <span className='sr-only'>Account</span>
         <User className="w-5 h-5" />
       </NavLink>
+        <WhishlistToggle />
         <CartToggle cart={cart} />
     </nav>
   );
@@ -294,21 +295,6 @@ function CartBadge({count}) {
       )
       }
     </button>
-    // <a
-    //   href="/cart"
-    //   onClick={(e) => {
-    //     e.preventDefault();
-    //     open('cart');
-    //     publish('cart_viewed', {
-    //       cart,
-    //       prevCart,
-    //       shop,
-    //       url: window.location.href || '',
-    //     });
-    //   }}
-    // >
-    //   Cart {count === null ? <span>&nbsp;</span> : count}
-    // </a>
   );
 }
 
@@ -329,6 +315,44 @@ function CartBanner() {
   const originalCart = useAsyncValue();
   const cart = useOptimisticCart(originalCart);
   return <CartBadge count={cart?.totalQuantity ?? 0} />;
+}
+
+function WhishlistToggle({cart}) {
+  return (
+    <Suspense fallback={<WhishlistBadge count={null} />}>
+      <Await resolve={cart}>
+        <WhishlistBanner />
+      </Await>
+    </Suspense>
+  );
+}
+function WhishlistBadge({count}) {
+  const {open} = useAside();
+  const {publish, shop, cart, prevCart} = useAnalytics();
+
+  return (
+
+    <button
+      className='relative p-2 hover:text-gold transition-colors duration-200 after:content[""] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[1px] after:bg-gold after:transition-all after:duration-300 hover:after:w-full'
+      onClick={() => {
+        open('wishlist');
+
+      }}
+    >
+      <Heart className="w-6 h-6" />
+      {count !== null && count > 0  && (
+        <span className='absolute top-1 rigth-1 bg-gold text-white text-[10px] font-medium rounded-full w-4 h-4 flex items-center justify-center'>
+          {count > 9 ? '9+' : count}
+        </span>
+      )
+      }
+    </button>
+  );
+}
+function WhishlistBanner() {
+  const originalCart = useAsyncValue();
+  const cart = useOptimisticCart(originalCart);
+  return <WhishlistBadge count={cart?.totalQuantity ?? 0} />;
 }
 
 /** @typedef {'desktop' | 'mobile'} Viewport */

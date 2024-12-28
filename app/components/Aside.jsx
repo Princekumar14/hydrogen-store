@@ -1,5 +1,5 @@
 import { X } from 'lucide-react';
-import {createContext, useContext, useEffect, useState} from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 /**
  * A side bar component with Overlay
@@ -16,8 +16,8 @@ import {createContext, useContext, useEffect, useState} from 'react';
  *   heading: React.ReactNode;
  * }}
  */
-export function Aside({children, heading, type}) {
-  const {type: activeType, close} = useAside();
+export function Aside({ children, heading, type }) {
+  const { type: activeType, close } = useAside();
   const expanded = type === activeType;
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export function Aside({children, heading, type}) {
 
 
   }, [expanded]);
-  
+
   useEffect(() => {
     if (!expanded) return;
 
@@ -62,45 +62,45 @@ export function Aside({children, heading, type}) {
     };
 
     document.addEventListener('keydown', handleEscape);
-    return () =>  document.removeEventListener('keydown', handleEscape);
-    
+    return () => document.removeEventListener('keydown', handleEscape);
+
   }, [close, expanded]);
 
   return (
+    <div
+      aria-modal
+      className={`fixed inset-0 z-50 transition-opacity duration-300 ease-in-out ${expanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      role="dialog"
+    >
+      {/* Overlay */}
       <div
-        aria-modal
-        className={`fixed inset-0 z-50 transition-opacity duration-300 ease-in-out ${expanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-        role="dialog"
+        className="absolute inset-0 bg-black/30"
+        onClick={close}
+      />
+
+      {/* Aside panel */}
+      <aside
+        className={`absolute top-0 right-0 h-[100dvh] w-full max-w-md flex flex-col bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${expanded ? 'translate-x-0' : 'translate-x-full'}`}
       >
-        {/* Overlay */}
-        <div 
-          className="absolute inset-0 bg-black/30"
-          onClick={close}
-        />
+        {/* Header  */}
+        <header className="flex items-center justify-between px-6 py-4 border-b border-gray">
+          <h3
+            className='font-playfair text-xl text-navy'
+          >{heading}</h3>
 
-          {/* Aside panel */}
-          <aside
-            className={`absolute top-0 right-0 h-[100dvh] w-full max-w-md flex flex-col bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${expanded ? 'translate-x-0' : 'translate-x-full'}`}
+          <button
+            onClick={close}
+            className='p-2 -mr-2 text-gray font-normal hover:text-gray hover:font-medium transition-colors duration-300'
           >
-            {/* Header  */}
-            <header className="flex items-center justify-between px-6 py-4 border-b border-gray">
-              <h3 
-                className='font-playfair text-xl text-navy'
-              >{heading}</h3>
+            <X className='w-5 h-5' />
+          </button>
 
-              <button
-                onClick={close}
-                className='p-2 -mr-2 text-gray font-normal hover:text-gray hover:font-medium transition-colors duration-300'
-              >
-                <X className='w-5 h-5' />
-              </button>
+        </header>
 
-            </header>
-
-            {/* Content */}
-            <main className="flex-1 overlay-y-auto">{children}</main>
-          </aside>
-      </div>  
+        {/* Content */}
+        <main className="flex-1 overlay-y-auto">{children}</main>
+      </aside>
+    </div>
   );
 
 
@@ -144,7 +144,7 @@ export function Aside({children, heading, type}) {
 
 const AsideContext = createContext(null);
 
-Aside.Provider = function AsideProvider({children}) {
+Aside.Provider = function AsideProvider({ children }) {
   const [type, setType] = useState('closed');
 
   return (
@@ -168,7 +168,7 @@ export function useAside() {
   return aside;
 }
 
-/** @typedef {'search' | 'cart' | 'mobile' | 'closed'} AsideType */
+/** @typedef {'search' | 'cart' | 'mobile' | 'closed' | 'wishlist'} AsideType */
 /**
  * @typedef {{
  *   type: AsideType;

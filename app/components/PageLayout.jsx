@@ -9,6 +9,7 @@ import {
   SearchFormPredictive,
 } from '~/components/SearchFormPredictive';
 import {SearchResultsPredictive} from '~/components/SearchResultsPredictive';
+import { WishlistMain } from './wishlist/WishlistMain';
 
 /**
  * @param {PageLayoutProps}
@@ -23,6 +24,7 @@ export function PageLayout({
 }) {
   return (
     <Aside.Provider>
+      <WishlistAside />
       <CartAside cart={cart} />
       <SearchAside />
       <MobileMenuAside header={header} publicStoreDomain={publicStoreDomain} />
@@ -34,7 +36,7 @@ export function PageLayout({
           publicStoreDomain={publicStoreDomain}
         />
       )}
-      <main>{children}</main>
+      <main className='pt-40'>{children}</main>
       <Footer
         footer={footer}
         header={header}
@@ -56,6 +58,22 @@ function CartAside({cart}) {
             return <CartMain cart={cart} layout="aside" />;
           }}
         </Await>
+      </Suspense>
+    </Aside>
+  );
+}
+
+
+function WishlistAside({wishlistedItems}) {
+  return (
+    <Aside type="wishlist" heading="WISHLIST">
+      <Suspense fallback={<p>Loading wishlist ...</p>}>
+        <WishlistMain layout="aside" />
+        {/* <Await resolve={wishlistedItems}>
+          {(wishlistedItems) => {
+            return <WishlistMain layout="aside" />;
+          }}
+        </Await> */}
       </Suspense>
     </Aside>
   );

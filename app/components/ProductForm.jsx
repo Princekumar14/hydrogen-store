@@ -1,6 +1,7 @@
 import {Link, useNavigate} from '@remix-run/react';
 import {AddToCartButton} from './AddToCartButton';
 import {useAside} from './Aside';
+import { AddToWishlistButton } from './AddToWishlistButton';
 
 /**
  * @param {{
@@ -116,6 +117,23 @@ export function ProductForm({productOptions, selectedVariant}) {
         {/* Add to cart */}
         {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
       </AddToCartButton>
+      <AddToWishlistButton
+        lines={
+          selectedVariant
+            ? [
+                {
+                  merchandiseId: selectedVariant.id,
+                  selectedVariant,
+                },
+              ]
+            : []
+        }
+        afterAddToWishlist={()=>{
+          open('wishlist')
+        }}
+      >
+
+      </AddToWishlistButton>
     </div>
   );
 }
