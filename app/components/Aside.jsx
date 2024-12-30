@@ -146,7 +146,6 @@ const AsideContext = createContext(null);
 
 Aside.Provider = function AsideProvider({ children }) {
   const [type, setType] = useState('closed');
-
   return (
     <AsideContext.Provider
       value={{

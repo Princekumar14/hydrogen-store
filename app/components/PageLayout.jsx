@@ -65,6 +65,7 @@ function CartAside({cart}) {
 
 
 function WishlistAside({wishlistedItems}) {
+  
   return (
     <Aside type="wishlist" heading="WISHLIST">
       <Suspense fallback={<p>Loading wishlist ...</p>}>
